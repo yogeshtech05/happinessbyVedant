@@ -1,0 +1,58 @@
+import { OccasionCategory } from "@/types";
+
+export const OCCASIONS: OccasionCategory[] = [
+  {
+    id: "birthday",
+    name: "Birthday",
+    tagline: "Unforgettable milestone celebrations crafted with love",
+    icon: "Cake",
+    packageCount: 8,
+    gradient: "from-rose-500/10 via-pink-500/10 to-amber-500/10",
+    accentColor: "#E86A85",
+  },
+  {
+    id: "anniversary",
+    name: "Anniversary",
+    tagline: "Celebrate your beautiful journey of togetherness",
+    icon: "Heart",
+    packageCount: 6,
+    gradient: "from-pink-500/10 via-rose-500/10 to-purple-500/10",
+    accentColor: "#D94B68",
+  },
+  {
+    id: "parents",
+    name: "For Parents",
+    tagline: "Show lifelong gratitude to the ones who mean the world",
+    icon: "Sparkles",
+    packageCount: 5,
+    gradient: "from-amber-500/10 via-rose-500/10 to-orange-500/10",
+    accentColor: "#D4AF37",
+  },
+  {
+    id: "romantic",
+    name: "Romantic",
+    tagline: "Magical proposals, dates, and heart-melting surprises",
+    icon: "Gift",
+    packageCount: 7,
+    gradient: "from-rose-600/10 via-red-500/10 to-pink-500/10",
+    accentColor: "#E86A85",
+  },
+  {
+    id: "congratulations",
+    name: "Congratulations",
+    tagline: "Honor achievements, promotions, and new beginnings",
+    icon: "Trophy",
+    packageCount: 4,
+    gradient: "from-emerald-500/10 via-teal-500/10 to-rose-500/10",
+    accentColor: "#10B981",
+  },
+  {
+    id: "festivals",
+    name: "Festivals",
+    tagline: "Traditional warmth with modern luxury presentation",
+    icon: "PartyPopper",
+    packageCount: 5,
+    gradient: "from-amber-500/10 via-yellow-500/10 to-rose-500/10",
+    accentColor: "#F59E0B",
+  },
+];

@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFFDF9;
+  --foreground: #1E1B18;
+}
+
+@theme {
+  --font-serif: var(--font-serif), Georgia, Cambria, serif;
+  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  --color-rose-gold: #E86A85;
+  --color-rose-deep: #D94B68;
+  --color-gold-accent: #D4AF37;
+  --color-cream-bg: #FFFDF9;
+  --color-plum-dark: #2D181E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Animations */
+@keyframes bounceShort {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bounce-short {
+  animation: bounceShort 3s ease-in-out infinite;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.25s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out forwards;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SparklesIcon, HeartIcon, ArrowRightIcon, ShieldCheckIcon } from "@/components/ui/Icons";
 import { SITE_CONFIG } from "@/config/site";
 
@@ -72,66 +73,25 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Premium Gifting Visual Composition */}
+          {/* Right Column: Glassmorphic Full-View Showcase */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Main Card */}
-              <div className="bg-gradient-to-br from-rose-900 via-rose-950 to-slate-950 p-6 sm:p-8 rounded-3xl text-white shadow-2xl relative overflow-hidden border border-rose-500/30">
-                {/* Background SVG decorative swirl */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 rounded-full blur-2xl pointer-events-none" />
+              {/* Soft Ambient Glow behind Glass */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-rose-400/30 via-pink-400/25 to-amber-300/30 rounded-[2.5rem] blur-2xl opacity-75 pointer-events-none" />
 
-                {/* Card Emblem */}
-                <div className="flex items-center justify-between mb-6 sm:mb-8">
-                  <div className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-rose-200">
-                    VIP Surprise Experience
-                  </div>
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-400 text-rose-950 font-bold flex items-center justify-center text-xs shadow-lg">
-                    4.9★
-                  </div>
-                </div>
+              {/* Frosted Glassmorphism Container */}
+              <div className="w-full h-[380px] sm:h-[460px] lg:h-[520px] relative rounded-3xl overflow-hidden shadow-2xl backdrop-blur-xl bg-white/40 border border-white/80 group flex items-center justify-center">
+                {/* Subtle Glass Reflection Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-rose-500/5 pointer-events-none z-10" />
 
-                {/* SVG Visual Illustration of Surprise Moment */}
-                <div className="my-4 sm:my-6 p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md text-center space-y-3 sm:space-y-4">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-gradient-to-tr from-rose-500 to-amber-400 p-0.5 shadow-xl flex items-center justify-center">
-                    <div className="w-full h-full rounded-full bg-rose-950 flex items-center justify-center text-white">
-                      <SparklesIcon size={30} className="text-amber-300 sm:w-9 sm:h-9" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
-                      Doorstep Emotional Host
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-rose-200/80 mt-1">
-                      Custom Cake • Rose Bouquet • Live Song • Memory Scroll
-                    </p>
-                  </div>
-                </div>
-
-                {/* Floating Micro Testimonial Card */}
-                <div className="p-3.5 sm:p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-rose-400 text-slate-900 font-bold flex items-center justify-center shrink-0 text-sm">
-                    G
-                  </div>
-                  <div>
-                    <p className="text-xs italic text-rose-100 font-serif">
-                      &quot;My mom had teary eyes when the presenter read my letter!&quot;
-                    </p>
-                    <p className="text-[10px] text-amber-300 mt-0.5 font-semibold">
-                      — Verified Booking in Mumbai
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Accent Pill */}
-              <div className="relative sm:absolute sm:-bottom-6 sm:-left-6 mt-4 sm:mt-0 bg-white p-3.5 sm:p-4 rounded-2xl shadow-xl border border-rose-100 flex items-center gap-3 animate-bounce-short">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">
-                  ✓
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-900">1,250+ Surprises</p>
-                  <p className="text-[10px] text-slate-500">Delivered with Pure Emotion</p>
-                </div>
+                <Image
+                  src="/happiness.png"
+                  alt="Happiness Deliver Experience"
+                  fill
+                  className="object-contain p-3 sm:p-5 group-hover:scale-110 transition-transform duration-700 ease-out z-0"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
               </div>
             </div>
           </div>

@@ -62,6 +62,7 @@ export const PackageDetailClient: React.FC<PackageDetailClientProps> = ({
       price: pkg.price,
       imageTheme: pkg.imageTheme,
       visualIcon: pkg.visualIcon,
+      image: pkg.image,
       selectedAddons,
       recipientName,
       customMessage,
@@ -99,6 +100,7 @@ export const PackageDetailClient: React.FC<PackageDetailClientProps> = ({
               title={pkg.title}
               badge={pkg.badge}
               size="lg"
+              imageSrc={pkg.image}
             />
 
             {/* Inclusions Card */}
@@ -260,7 +262,7 @@ export const PackageDetailClient: React.FC<PackageDetailClientProps> = ({
                   <textarea
                     id="customMessage"
                     rows={3}
-                    placeholder="Write a message or scroll note you want Gauri's presenter to read aloud..."
+                    placeholder="Write a message or scroll note you want our presenter to read aloud..."
                     value={customMessage}
                     onChange={(e) => setCustomMessage(e.target.value)}
                     className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-rose-50/30 border border-rose-200/80 text-base sm:text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-rose-500/40"

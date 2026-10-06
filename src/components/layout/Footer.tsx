@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   SparklesIcon,
   HeartIcon,
@@ -21,18 +22,14 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
           {/* Brand Info */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-rose-500 to-rose-700 text-white flex items-center justify-center shadow-md">
-                <SparklesIcon size={20} />
-              </div>
-              <div>
-                <span className="font-serif text-xl font-bold tracking-tight text-white block">
-                  {SITE_CONFIG.shortName}
-                </span>
-                <span className="text-[10px] tracking-widest uppercase font-semibold text-rose-400 block">
-                  by Gauri
-                </span>
-              </div>
+            <Link href="/" className="inline-block bg-white/95 p-2 rounded-2xl shadow-md hover:scale-105 transition-transform">
+              <Image
+                src="/weblogo.png"
+                alt="Happiness Deliver Logo"
+                width={180}
+                height={48}
+                className="h-10 sm:h-12 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed italic font-serif">
               &quot;{SITE_CONFIG.tagline}&quot;

@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  name: "Happiness Deliver by Gauri",
+  name: "Happiness Deliver",
   shortName: "Happiness Deliver",
   tagline: "We Don’t Just Deliver Gifts, We Deliver Emotions.",
   description:
@@ -12,7 +12,7 @@ export const SITE_CONFIG = {
     email: "hello@happinessdeliver.com",
     address: "Mumbai • Delhi NCR • Bangalore • Pune",
     whatsappUrl:
-      "https://wa.me/919876543210?text=Hi%20Gauri,%20I%20want%20to%20plan%20a%20surprise!",
+      "https://wa.me/919876543210?text=Hi,%20I%20want%20to%20plan%20a%20surprise!",
   },
   navLinks: [
     { name: "Home", href: "/" },

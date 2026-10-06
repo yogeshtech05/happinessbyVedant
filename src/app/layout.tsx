@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.shortName}`,
   },
   description:
-    "Create unforgettable moments with premium surprise gifting, customized gifts, cakes, flowers and doorstep surprise experiences by Happiness Deliver by Gauri.",
+    "Create unforgettable moments with premium surprise gifting, customized gifts, cakes, flowers and doorstep surprise experiences by Happiness Deliver.",
   keywords: [
-    "Happiness Deliver by Gauri",
+    "Happiness Deliver",
     "surprise delivery",
     "gifting experience",
     "female surprise presenter",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "parents special surprise gift",
     "romantic proposal setup",
   ],
-  authors: [{ name: "Gauri" }],
+  authors: [{ name: "Happiness Deliver Team" }],
   creator: SITE_CONFIG.name,
   openGraph: {
     type: "website",

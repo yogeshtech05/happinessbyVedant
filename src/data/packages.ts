@@ -67,7 +67,7 @@ export const PACKAGES: PackageItem[] = [
     duration: "30 - 45 Minutes Experience",
     imageTheme: "pink",
     visualIcon: "Cake",
-    image: "/images/birthday-surprise.jpg",
+    image: "/surprises/birthday.png",
   },
   {
     id: "pkg-parents-special",
@@ -128,7 +128,7 @@ export const PACKAGES: PackageItem[] = [
     duration: "45 Minutes Experience",
     imageTheme: "gold",
     visualIcon: "Sparkles",
-    image: "/images/parents-special.jpg",
+    image: "/surprises/parents.png",
   },
   {
     id: "pkg-anniversary-surprise",
@@ -189,7 +189,7 @@ export const PACKAGES: PackageItem[] = [
     duration: "45 - 60 Minutes Experience",
     imageTheme: "rose",
     visualIcon: "Heart",
-    image: "/images/anniversary-surprise.jpg",
+    image: "/surprises/Anniversary.png",
   },
   {
     id: "pkg-premium-surprise-experience",
@@ -251,7 +251,7 @@ export const PACKAGES: PackageItem[] = [
     duration: "60 - 75 Minutes Experience",
     imageTheme: "plum",
     visualIcon: "Gift",
-    image: "/images/premium-experience.jpg",
+    image: "/surprises/Premium.png",
   },
   {
     id: "pkg-midnight-romantic-gala",

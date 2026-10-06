@@ -10,7 +10,7 @@ export const TestimonialsSection: React.FC = () => {
         <SectionHeading
           badge="Real Customer Emotions"
           title="Stories of Happy Tears & Smiles"
-          subtitle="Read how Gauri's surprise team helped families and lovers express what words couldn't."
+          subtitle="Read how our surprise team helped families and lovers express what words couldn't."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

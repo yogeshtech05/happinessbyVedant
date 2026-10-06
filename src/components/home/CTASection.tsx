@@ -22,7 +22,7 @@ export const CTASection: React.FC = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-rose-100 max-w-xl mx-auto font-sans leading-relaxed">
-            Choose your occasion, customize your gift hamper & presenter note, and leave the magic to Gauri&apos;s trained surprise team!
+            Choose your occasion, customize your gift hamper & presenter note, and leave the magic to our trained surprise team!
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -41,7 +41,7 @@ export const CTASection: React.FC = () => {
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
             >
               <WhatsAppIcon size={18} />
-              <span>Talk to Gauri on WhatsApp</span>
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         </div>

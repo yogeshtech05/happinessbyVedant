@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/hooks/use-cart";
 import { MobileNavigation } from "@/components/navigation/MobileNavigation";
@@ -42,19 +43,16 @@ export const Header: React.FC = () => {
           <Link
             href="/"
             className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
-            aria-label="Happiness Deliver by Gauri Home"
+            aria-label="Happiness Deliver Home"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-br from-rose-500 to-rose-700 text-white flex items-center justify-center shadow-md shadow-rose-500/20 group-hover:scale-105 transition-transform shrink-0">
-              <SparklesIcon size={18} className="animate-pulse sm:w-5 sm:h-5" />
-            </div>
-            <div className="leading-tight">
-              <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-slate-900 block">
-                {SITE_CONFIG.shortName}
-              </span>
-              <span className="text-[9px] sm:text-[10px] tracking-widest uppercase font-semibold text-rose-600 block">
-                by Gauri
-              </span>
-            </div>
+            <Image
+              src="/weblogo.png"
+              alt="Happiness Deliver Logo"
+              width={200}
+              height={50}
+              className="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation Links */}

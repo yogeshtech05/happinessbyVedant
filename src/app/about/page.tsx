@@ -14,11 +14,11 @@ import { SITE_CONFIG } from "@/config/site";
 export const metadata: Metadata = {
   title: `About Us & Our Mission | ${SITE_CONFIG.name}`,
   description:
-    "Learn about Gauri's vision of delivering pure human emotion, the significance of trained female surprise presenters, and our 4 core values of doorstep gifting.",
+    "Learn about our vision of delivering pure human emotion, the significance of trained female surprise presenters, and our 4 core values of doorstep gifting.",
   openGraph: {
     title: `About Us & Our Mission | ${SITE_CONFIG.name}`,
     description:
-      "Learn about Gauri's vision of delivering pure human emotion and the value of trained female surprise presenters.",
+      "Learn about our vision of delivering pure human emotion and the value of trained female surprise presenters.",
     url: `${SITE_CONFIG.url}/about`,
   },
 };
@@ -30,7 +30,7 @@ export default function AboutPage() {
         {/* Header Hero */}
         <SectionHeading
           badge="Our Heart & Story"
-          title="About Happiness Deliver by Gauri"
+          title="About Happiness Deliver"
           subtitle="&quot;We Don’t Just Deliver Gifts, We Deliver Emotions.&quot;"
         />
 
@@ -42,17 +42,17 @@ export default function AboutPage() {
             </h2>
 
             <p className="text-slate-700 text-base leading-relaxed">
-              Happiness Deliver by Gauri was born out of a simple observation: in today&apos;s fast-paced digital world, sending a gift card or a courier package often lacks soul. When children living away from home want to surprise their aging parents, or when someone wants to declare their love on an anniversary, a generic delivery person handing over a box doesn&apos;t match the magnitude of the emotion.
+              Happiness Deliver was born out of a simple observation: in today&apos;s fast-paced digital world, sending a gift card or a courier package often lacks soul. When children living away from home want to surprise their aging parents, or when someone wants to declare their love on an anniversary, a generic delivery person handing over a box doesn&apos;t match the magnitude of the emotion.
             </p>
 
             <p className="text-slate-700 text-base leading-relaxed">
-              Gauri envisioned a premium doorstep experience where every delivery is treated like a theatrical, heartwarming moment. Our team of gracefully trained female surprise presenters arrives with fresh flower box arrangements, customized cakes, soft acoustic background music, and your handwritten scroll message.
+              We envisioned a premium doorstep experience where every delivery is treated like a theatrical, heartwarming moment. Our team of gracefully trained female surprise presenters arrives with fresh flower box arrangements, customized cakes, soft acoustic background music, and your handwritten scroll message.
             </p>
 
             <div className="p-6 rounded-2xl bg-rose-50 border border-rose-200/80 font-serif italic text-rose-900 text-base">
               &quot;Our mission is to give people a core memory—a moment where eyes glisten with happy tears and loved ones feel deeply cherished.&quot;
               <span className="block text-xs font-sans font-bold text-rose-700 mt-2 not-italic">
-                — Gauri, Founder & Chief Experience Curator
+                — Founder & Chief Experience Curator
               </span>
             </div>
           </div>

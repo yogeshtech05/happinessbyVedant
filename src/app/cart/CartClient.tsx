@@ -30,7 +30,7 @@ export default function CartClient() {
       setPromoApplied(true);
       setDiscountAmount(PROMO_CODES[code]);
     } else if (code.length > 0) {
-      alert("Invalid promo code. Try 'GAURI100' for ₹500 off!");
+      alert("Invalid promo code. Try 'HAPPINESS100' for ₹500 off!");
     }
   };
 
@@ -79,6 +79,7 @@ export default function CartClient() {
                       theme={item.imageTheme}
                       title={item.title}
                       size="sm"
+                      imageSrc={item.image}
                     />
                   </div>
 
@@ -195,13 +196,13 @@ export default function CartClient() {
                 {/* Promo Code Form */}
                 <form onSubmit={handleApplyPromo} className="space-y-2">
                   <label htmlFor="promoCodeInput" className="block text-xs font-semibold text-slate-700">
-                    Have a Gift Promo Code? (Try: GAURI100)
+                    Have a Gift Promo Code? (Try: HAPPINESS100)
                   </label>
                   <div className="flex items-center gap-2">
                     <input
                       id="promoCodeInput"
                       type="text"
-                      placeholder="e.g. GAURI100"
+                      placeholder="e.g. HAPPINESS100"
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value)}
                       disabled={promoApplied}

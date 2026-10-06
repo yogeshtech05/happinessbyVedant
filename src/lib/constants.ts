@@ -6,7 +6,7 @@ export const DEFAULT_TIME_SLOTS = [
 ] as const;
 
 export const PROMO_CODES: Record<string, number> = {
-  GAURI100: 500,
+  HAPPINESS100: 500,
   WELCOME50: 300,
 } as const;
 

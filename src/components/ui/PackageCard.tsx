@@ -25,6 +25,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ packageItem }) => {
       price: packageItem.price,
       imageTheme: packageItem.imageTheme,
       visualIcon: packageItem.visualIcon,
+      image: packageItem.image,
       selectedAddons: [],
     });
   };
@@ -39,6 +40,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ packageItem }) => {
             title={packageItem.title}
             badge={packageItem.badge}
             size="md"
+            imageSrc={packageItem.image}
           />
         </Link>
 

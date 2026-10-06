@@ -11,6 +11,7 @@ export interface CartItem {
   price: number;
   imageTheme: "pink" | "gold" | "rose" | "plum" | "amber" | "emerald";
   visualIcon: string;
+  image?: string;
   selectedAddons: SelectedAddon[];
   customMessage?: string;
   recipientName?: string;

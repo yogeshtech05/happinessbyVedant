@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface PackageVisualProps {
   theme?: "pink" | "gold" | "rose" | "plum" | "amber" | "emerald";
@@ -6,6 +7,7 @@ interface PackageVisualProps {
   badge?: string;
   className?: string;
   size?: "sm" | "md" | "lg";
+  imageSrc?: string;
 }
 
 export const PackageVisual: React.FC<PackageVisualProps> = ({
@@ -14,6 +16,7 @@ export const PackageVisual: React.FC<PackageVisualProps> = ({
   badge,
   className = "",
   size = "md",
+  imageSrc,
 }) => {
   const getGradient = () => {
     switch (theme) {
@@ -38,6 +41,23 @@ export const PackageVisual: React.FC<PackageVisualProps> = ({
     md: "h-64",
     lg: "h-80 md:h-96",
   };
+
+  if (imageSrc) {
+    return (
+      <div
+        className={`relative w-full ${heights[size]} rounded-2xl overflow-hidden shadow-xl backdrop-blur-md bg-white/40 border border-white/80 group flex items-center justify-center ${className}`}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-rose-500/5 pointer-events-none z-10" />
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-contain p-3 group-hover:scale-110 transition-transform duration-500 ease-out z-0"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
+    );
+  }
 
   return (
     <div

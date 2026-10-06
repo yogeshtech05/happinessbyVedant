@@ -8,7 +8,7 @@ export const WhyChooseUsSection: React.FC = () => {
     <section className="py-20 bg-[#FFFDF9]">
       <div className="max-w-[1920px] w-full mx-auto px-4 sm:px-6 lg:px-12">
         <SectionHeading
-          badge="The Gauri Standard"
+          badge="The Happiness Standard"
           title="Why Choose Happiness Deliver"
           subtitle="We take gifting beyond material products by infusing every doorstep delivery with human connection and respect."
         />

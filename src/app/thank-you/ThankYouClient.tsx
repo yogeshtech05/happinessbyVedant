@@ -54,7 +54,7 @@ export default function ThankYouClient() {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hi Gauri! I just placed a surprise order on your website. Order ID: ${demoOrder.orderId} for ${demoOrder.recipientName}. Can you confirm my delivery slot?`
+    `Hi! I just placed a surprise order on your website. Order ID: ${demoOrder.orderId} for ${demoOrder.recipientName}. Can you confirm my delivery slot?`
   );
 
   return (
@@ -78,7 +78,7 @@ export default function ThankYouClient() {
               Thank You, {demoOrder.customerName}!
             </h1>
             <p className="text-base text-slate-600 max-w-lg mx-auto font-sans">
-              Your surprise booking has been assigned to Gauri&apos;s senior presenter team. We are excited to deliver pure joy!
+              Your surprise booking has been assigned to our senior presenter team. We are excited to deliver pure joy!
             </p>
           </div>
 

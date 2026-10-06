@@ -51,7 +51,7 @@ export function ContactForm() {
         <SectionHeading
           badge="We Are Here For You"
           title="Contact & Surprise Consultations"
-          subtitle="Have questions or want a bespoke surprise setup? Speak with Gauri&apos;s experience team today."
+          subtitle="Have questions or want a bespoke surprise setup? Speak with our experience team today."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
@@ -65,7 +65,7 @@ export function ContactForm() {
                 Direct WhatsApp Consultation
               </h2>
               <p className="text-xs text-rose-100/90 leading-relaxed font-sans">
-                Want quick recommendations or urgent booking confirmation? Chat with Gauri directly on WhatsApp for instant assistance.
+                Want quick recommendations or urgent booking confirmation? Chat with us directly on WhatsApp for instant assistance.
               </p>
               <a
                 href={SITE_CONFIG.contact.whatsappUrl}
@@ -157,7 +157,7 @@ export function ContactForm() {
                     Inquiry Received!
                   </h3>
                   <p className="text-xs text-slate-600 max-w-sm mx-auto">
-                    Thank you, {formData.name}! Gauri&apos;s surprise team will call you shortly at {formData.phone} to discuss your {formData.occasion} surprise.
+                    Thank you, {formData.name}! Our surprise team will call you shortly at {formData.phone} to discuss your {formData.occasion} surprise.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}

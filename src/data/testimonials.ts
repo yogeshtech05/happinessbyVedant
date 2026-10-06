@@ -26,7 +26,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Dr. Ananya Roy",
     role: "Parents Special in Delhi NCR",
     quote:
-      "I live abroad and wanted to send something genuinely emotional to my parents for their 30th anniversary. Gauri's team executed everything with such grace and dignity. My parents said it was the best day of their life!",
+      "I live abroad and wanted to send something genuinely emotional to my parents for their 30th anniversary. The Happiness Deliver team executed everything with such grace and dignity. My parents said it was the best day of their life!",
     rating: 5,
     location: "Delhi NCR",
     occasion: "Parents Special",
@@ -48,7 +48,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Sanya Kulkarni",
     role: "Romantic Proposal Experience in Pune",
     quote:
-      "I booked the Premium Surprise Experience for my partner's proposal. The live guitarist played our song right as she opened the door. The whole neighborhood was smiling! Thank you Gauri!",
+      "I booked the Premium Surprise Experience for my partner's proposal. The live guitarist played our song right as she opened the door. The whole neighborhood was smiling! Thank you Happiness Deliver!",
     rating: 5,
     location: "Pune",
     occasion: "Romantic",

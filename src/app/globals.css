@@ -6,8 +6,8 @@
 }
 
 @theme {
-  --font-serif: var(--font-serif), Georgia, Cambria, serif;
-  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --color-rose-gold: #E86A85;
   --color-rose-deep: #D94B68;
   --color-gold-accent: #D4AF37;

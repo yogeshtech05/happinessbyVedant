@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { PACKAGES } from "@/data/packages";
+import { getPackages } from "@/lib/packages";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowRightIcon } from "@/components/ui/Icons";
 
-export const FeaturedPackagesSection: React.FC = () => {
-  const featuredPackages = PACKAGES.filter((p) => p.featured);
+export async function FeaturedPackagesSection() {
+  const featuredPackages = (await getPackages()).filter((p) => p.featured || p.isFeatured);
 
   return (
     <section className="py-20 bg-white">

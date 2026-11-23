@@ -21,9 +21,21 @@ export function ContactForm() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitError(null);
+    try {
+      const { apiRequest } = await import("@/lib/api");
+      await apiRequest("/api/storefront/contact", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitError("We could not send your inquiry. Please try again or contact us on WhatsApp.");
+    }
   };
 
   const faqs = [
@@ -168,6 +180,11 @@ export function ContactForm() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {submitError && (
+                    <p className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs text-red-700">
+                      {submitError}
+                    </p>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="contactName" className="block text-xs font-semibold text-slate-700 mb-1">
@@ -211,6 +228,7 @@ export function ContactForm() {
                       <input
                         id="contactEmail"
                         type="email"
+                        required
                         placeholder="anjali@example.com"
                         value={formData.email}
                         onChange={(e) =>
@@ -269,6 +287,8 @@ export function ContactForm() {
                     <textarea
                       id="contactVision"
                       rows={4}
+                      required
+                      minLength={5}
                       placeholder="Share recipient preferences, preferred cake flavor, dates, or special requests..."
                       value={formData.message}
                       onChange={(e) =>

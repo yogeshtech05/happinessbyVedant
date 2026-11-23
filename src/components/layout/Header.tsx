@@ -10,7 +10,6 @@ import {
   ShoppingBagIcon,
   MenuIcon,
   XIcon,
-  SparklesIcon,
   HeartIcon,
 } from "@/components/ui/Icons";
 import { SITE_CONFIG } from "@/config/site";

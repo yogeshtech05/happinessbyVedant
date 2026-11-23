@@ -15,22 +15,31 @@ import {
   SparklesIcon,
 } from "@/components/ui/Icons";
 import { formatPrice } from "@/lib/utils";
-import { PROMO_CODES } from "@/lib/constants";
+import { apiRequest } from "@/lib/api";
 
 export default function CartClient() {
-  const { cart, removeFromCart, updateQuantity, subtotal, totalItems } = useCart();
+  const { cart, removeFromCart, updateQuantity, subtotal, totalItems, appliedCoupon, setAppliedCoupon } = useCart();
   const [promoCode, setPromoCode] = useState("");
-  const [promoApplied, setPromoApplied] = useState(false);
-  const [discountAmount, setDiscountAmount] = useState(0);
+  const [promoError, setPromoError] = useState("");
+  const promoApplied = appliedCoupon !== null;
+  const discountAmount = appliedCoupon?.discountAmount ?? 0;
 
-  const handleApplyPromo = (e: React.FormEvent) => {
+  const handleApplyPromo = async (e: React.FormEvent) => {
     e.preventDefault();
     const code = promoCode.trim().toUpperCase();
-    if (PROMO_CODES[code]) {
-      setPromoApplied(true);
-      setDiscountAmount(PROMO_CODES[code]);
-    } else if (code.length > 0) {
-      alert("Invalid promo code. Try 'HAPPINESS100' for ₹500 off!");
+    if (!code) return;
+    setPromoError("");
+    try {
+      const result = await apiRequest<{ valid: boolean; discountAmount: number; reason?: string }>(
+        `/api/storefront/coupons/validate?code=${encodeURIComponent(code)}&subtotal=${subtotal}`,
+      );
+      if (!result.valid) {
+        setPromoError(result.reason ?? "This promo code is not valid.");
+        return;
+      }
+      setAppliedCoupon({ code, discountAmount: Number(result.discountAmount) });
+    } catch {
+      setPromoError("Unable to validate this promo code. Please try again.");
     }
   };
 
@@ -196,7 +205,7 @@ export default function CartClient() {
                 {/* Promo Code Form */}
                 <form onSubmit={handleApplyPromo} className="space-y-2">
                   <label htmlFor="promoCodeInput" className="block text-xs font-semibold text-slate-700">
-                    Have a Gift Promo Code? (Try: HAPPINESS100)
+                    Have a Gift Promo Code?
                   </label>
                   <div className="flex items-center gap-2">
                     <input
@@ -222,6 +231,7 @@ export default function CartClient() {
                       <span>{formatPrice(discountAmount)} Promo Discount Applied!</span>
                     </p>
                   )}
+                  {promoError && <p className="text-xs text-rose-600 font-semibold">{promoError}</p>}
                 </form>
 
                 {/* Calculation Breakdown */}

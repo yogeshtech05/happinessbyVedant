@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { PackageCatalog } from "@/components/packages/PackageCatalog";
 import { LoadingSkeleton } from "@/components/common/LoadingSkeleton";
 import { SITE_CONFIG } from "@/config/site";
+import { getPackages } from "@/lib/packages";
 
 export const metadata: Metadata = {
   title: `Surprise Packages & Experiences | ${SITE_CONFIG.name}`,
@@ -16,10 +17,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PackagesPage() {
+export default async function PackagesPage() {
+  const packages = await getPackages();
   return (
     <Suspense fallback={<LoadingSkeleton />}>
-      <PackageCatalog />
+      <PackageCatalog packages={packages} />
     </Suspense>
   );
 }

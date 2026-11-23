@@ -15,7 +15,7 @@ import { formatPrice } from "@/lib/utils";
 
 export default function CheckoutClient() {
   const router = useRouter();
-  const { cart, subtotal, clearCart, setLastOrder } = useCart();
+  const { cart, subtotal, clearCart, setLastOrder, appliedCoupon } = useCart();
 
   const [customerName, setCustomerName] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
@@ -53,37 +53,67 @@ export default function CheckoutClient() {
   }
 
   const photographyFee = includePhotography ? 999 : 0;
-  const grandTotal = subtotal + photographyFee;
 
-  const handlePlaceOrder = (e: React.FormEvent) => {
+  const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      const payload = {
+        customerName: customerName || "Valued Customer",
+        customerEmail: customerEmail || "customer@example.com",
+        customerPhone: customerPhone || "+91 98765 43210",
+        recipientName: recipientName || "Surprise Recipient",
+        recipientPhone: recipientPhone || customerPhone,
+        deliveryAddress: deliveryAddress || "Recipient Doorstep Address",
+        city,
+        pincode: pincode || "400001",
+        deliveryDate: deliveryDate || new Date().toISOString().split("T")[0],
+        deliveryTimeSlot,
+        presenterNote,
+        items: cart,
+        subtotal,
+        addonsTotal: photographyFee,
+        deliveryFee: 0,
+        couponCode: appliedCoupon?.code,
+        totalAmount: Math.max(0, subtotal + photographyFee - (appliedCoupon?.discountAmount ?? 0)),
+      };
 
-    const orderId = `HDG-${Math.floor(100000 + Math.random() * 900000)}`;
+      const { apiRequest } = await import("@/lib/api");
+      const result = await apiRequest<{ id: string; orderNumber: string }>(
+        "/api/storefront/orders",
+        {
+          method: "POST",
+          body: JSON.stringify(payload),
+        },
+      );
 
-    const newOrder: OrderDetails = {
-      orderId,
-      customerName: customerName || "Valued Customer",
-      customerEmail: customerEmail || "customer@example.com",
-      customerPhone: customerPhone || "+91 98765 43210",
-      recipientName: recipientName || "Surprise Recipient",
-      recipientPhone: recipientPhone || customerPhone,
-      deliveryAddress: deliveryAddress || "Recipient Doorstep Address",
-      city,
-      pincode: pincode || "400001",
-      deliveryDate: deliveryDate || new Date().toISOString().split("T")[0],
-      deliveryTimeSlot,
-      presenterNote,
-      items: cart,
-      subtotal,
-      addonsTotal: photographyFee,
-      deliveryFee: 0,
-      totalAmount: grandTotal,
-      createdAt: new Date().toLocaleString("en-IN"),
-    };
+      const orderId = result.orderNumber || result.id;
+      const newOrder: OrderDetails = {
+        orderId,
+        customerName: payload.customerName,
+        customerEmail: payload.customerEmail,
+        customerPhone: payload.customerPhone,
+        recipientName: payload.recipientName,
+        recipientPhone: payload.recipientPhone,
+        deliveryAddress: payload.deliveryAddress,
+        city: payload.city,
+        pincode: payload.pincode,
+        deliveryDate: payload.deliveryDate,
+        deliveryTimeSlot: payload.deliveryTimeSlot,
+        presenterNote: payload.presenterNote,
+        items: payload.items,
+        subtotal: payload.subtotal,
+        addonsTotal: payload.addonsTotal,
+        deliveryFee: payload.deliveryFee,
+        totalAmount: payload.totalAmount,
+        createdAt: new Date().toLocaleString("en-IN"),
+      };
 
-    setLastOrder(newOrder);
-    clearCart();
-    router.push("/thank-you");
+      setLastOrder(newOrder);
+      clearCart();
+      router.push("/thank-you");
+    } catch (err) {
+      console.error("Failed to place order:", err);
+    }
   };
 
   return (
@@ -394,7 +424,7 @@ export default function CheckoutClient() {
                       Total Payable
                     </span>
                     <span className="font-serif text-2xl sm:text-3xl font-extrabold text-rose-600">
-                      {formatPrice(grandTotal)}
+                      {formatPrice(subtotal + photographyFee)}
                     </span>
                   </div>
                 </div>

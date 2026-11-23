@@ -15,6 +15,8 @@ interface CartContextType {
   clearCart: () => void;
   totalItems: number;
   subtotal: number;
+  appliedCoupon: { code: string; discountAmount: number } | null;
+  setAppliedCoupon: (coupon: { code: string; discountAmount: number } | null) => void;
   lastOrder: OrderDetails | null;
   setLastOrder: (order: OrderDetails) => void;
   toastMessage: string | null;
@@ -51,6 +53,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return null;
   });
 
+  const [appliedCoupon, setAppliedCouponState] = useState<{
+    code: string;
+    discountAmount: number;
+  } | null>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("happiness_deliver_coupon");
+      if (saved) return JSON.parse(saved);
+    }
+    return null;
+  });
+
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Sync cart to localStorage
@@ -61,6 +74,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       console.error("Failed to save cart", e);
     }
   }, [cart]);
+
+  useEffect(() => {
+    if (appliedCoupon) localStorage.setItem("happiness_deliver_coupon", JSON.stringify(appliedCoupon));
+    else localStorage.removeItem("happiness_deliver_coupon");
+  }, [appliedCoupon]);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -122,6 +140,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const clearCart = () => {
     setCart([]);
+    setAppliedCouponState(null);
   };
 
   const setLastOrder = (order: OrderDetails) => {
@@ -146,6 +165,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         clearCart,
         totalItems,
         subtotal,
+        appliedCoupon,
+        setAppliedCoupon: setAppliedCouponState,
         lastOrder,
         setLastOrder,
         toastMessage,

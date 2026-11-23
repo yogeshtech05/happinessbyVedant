@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "@/app/globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { Header } from "@/components/layout/Header";
@@ -7,18 +6,6 @@ import { Footer } from "@/components/layout/Footer";
 import { ToastWrapper } from "@/components/ui/ToastWrapper";
 import { JsonLd } from "@/components/common/JsonLd";
 import { SITE_CONFIG } from "@/config/site";
-
-const playfair = Playfair_Display({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -66,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${jakarta.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
       <body
         className="min-h-full flex flex-col font-sans bg-[#FFFDF9] text-slate-900 selection:bg-rose-100 selection:text-rose-900"

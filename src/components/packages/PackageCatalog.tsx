@@ -2,14 +2,14 @@
 
 import React, { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
-import { PACKAGES } from "@/data/packages";
+import type { PackageItem } from "@/types";
 import { OCCASIONS } from "@/data/occasions";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SearchIcon, SlidersHorizontalIcon, SparklesIcon } from "@/components/ui/Icons";
 import { OccasionType, SortOption } from "@/types";
 
-export function PackageCatalog() {
+export function PackageCatalog({ packages }: { packages: PackageItem[] }) {
   const searchParams = useSearchParams();
   const initialCategory = (searchParams.get("category") as OccasionType) || "all";
 
@@ -19,7 +19,7 @@ export function PackageCatalog() {
   const [sortBy, setSortBy] = useState<SortOption>("popular");
 
   const filteredPackages = useMemo(() => {
-    return PACKAGES.filter((pkg) => {
+    return packages.filter((pkg) => {
       // Category filter
       if (selectedCategory !== "all" && pkg.occasion !== selectedCategory) {
         return false;
@@ -44,7 +44,7 @@ export function PackageCatalog() {
       // Default: popular / featured first
       return (b.popular ? 1 : 0) - (a.popular ? 1 : 0);
     });
-  }, [selectedCategory, searchQuery, maxPrice, sortBy]);
+  }, [packages, selectedCategory, searchQuery, maxPrice, sortBy]);
 
   return (
     <div className="pt-28 pb-20 bg-[#FFFDF9] min-h-screen">
@@ -119,7 +119,7 @@ export function PackageCatalog() {
                   : "bg-rose-50 text-slate-700 hover:bg-rose-100"
               }`}
             >
-              All Occasions ({PACKAGES.length})
+              All Occasions ({packages.length})
             </button>
             {OCCASIONS.map((occ) => (
               <button

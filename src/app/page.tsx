@@ -6,17 +6,19 @@ import { WhyChooseUsSection } from "@/components/home/WhyChooseUsSection";
 import { EmotionalSection } from "@/components/home/EmotionalSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { CTASection } from "@/components/home/CTASection";
+import { getStorefrontSummary } from "@/lib/storefront";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { categories, testimonials } = await getStorefrontSummary();
   return (
     <>
       <HeroSection />
-      <OccasionsSection />
+      <OccasionsSection occasions={categories} />
       <FeaturedPackagesSection />
       <HowItWorksSection />
       <WhyChooseUsSection />
       <EmotionalSection />
-      <TestimonialsSection />
+      <TestimonialsSection testimonials={testimonials} />
       <CTASection />
     </>
   );

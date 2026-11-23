@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { PACKAGES } from "@/data/packages";
+import { getPackageBySlug } from "@/lib/packages";
 import { PackageDetailClient } from "@/components/packages/PackageDetailClient";
 import { JsonLd } from "@/components/common/JsonLd";
 import { SITE_CONFIG } from "@/config/site";
@@ -11,7 +11,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const pkg = PACKAGES.find((p) => p.slug === slug);
+  const pkg = await getPackageBySlug(slug);
 
   if (!pkg) {
     return {
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PackageDetailPage({ params }: Props) {
   const { slug } = await params;
-  const pkg = PACKAGES.find((p) => p.slug === slug);
+  const pkg = await getPackageBySlug(slug);
 
   if (!pkg) {
     notFound();

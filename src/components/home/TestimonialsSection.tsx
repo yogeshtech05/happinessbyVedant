@@ -1,9 +1,10 @@
 import React from "react";
 import { TESTIMONIALS } from "@/data/testimonials";
+import type { Testimonial } from "@/data/testimonials";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StarIcon } from "@/components/ui/Icons";
 
-export const TestimonialsSection: React.FC = () => {
+export const TestimonialsSection: React.FC<{ testimonials?: Testimonial[] }> = ({ testimonials = TESTIMONIALS }) => {
   return (
     <section className="py-20 bg-gradient-to-b from-[#FFFDF9] to-white">
       <div className="max-w-[1920px] w-full mx-auto px-4 sm:px-6 lg:px-12">
@@ -14,7 +15,7 @@ export const TestimonialsSection: React.FC = () => {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {TESTIMONIALS.map((t) => (
+          {testimonials.map((t) => (
             <div
               key={t.id}
               className="bg-white rounded-3xl p-8 border border-rose-100 shadow-sm hover:shadow-xl hover:border-rose-300 transition-all duration-300 flex flex-col justify-between"
